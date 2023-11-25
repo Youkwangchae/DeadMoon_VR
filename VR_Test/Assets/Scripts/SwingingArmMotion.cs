@@ -69,7 +69,11 @@ public class SwingingArmMotion : MonoBehaviour
 
         //rotationText.text = HandSpeed.ToString();
 
-        if (Time.timeSinceLevelLoad > 1f)
+        //if (Time.timeSinceLevelLoad > 1f)
+
+        if (HandSpeed > 0.1f)
+            HandSpeed = 0.1f;
+
             transform.position += ForwardDirection.transform.forward.normalized * HandSpeed * speed;
 
         // transform.position += ForwardDirection.transform.forward * HandSpeed * speed * Time.deltaTime;
