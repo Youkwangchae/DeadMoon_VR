@@ -507,8 +507,6 @@ GameObject:
   - component: {fileID: 1242648145591875278}
   - component: {fileID: 9170886741015525387}
   - component: {fileID: 3343655695909598567}
-  - component: {fileID: 3801845873521492336}
-  - component: {fileID: 6953109671250397212}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -581,55 +579,8 @@ MonoBehaviour:
   RightHand: {fileID: 5327459355221056740}
   CenterEyeCamera: {fileID: 590407081337306966}
   ForwardDirection: {fileID: 3367207220445590110}
-  speed: 2
---- !u!135 &3801845873521492336
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3497108536125356431}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6953109671250397212
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3497108536125356431}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 2
-  m_Constraints: 116
-  m_CollisionDetection: 2
+  rotationText: {fileID: 0}
+  speed: 20
 --- !u!1 &5327459355221056740
 GameObject:
   m_ObjectHideFlags: 0
