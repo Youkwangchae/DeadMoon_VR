@@ -10,7 +10,7 @@ public class SwingingArmMotion : MonoBehaviour
     public GameObject CenterEyeCamera;
     public GameObject ForwardDirection;
 
-    public Text rotationText;
+    //public Text rotationText;
 
     private Vector3 PositionPreviousFrameLeftHand;
     private Vector3 PositionPreviousFrameRightHand;
@@ -26,6 +26,11 @@ public class SwingingArmMotion : MonoBehaviour
 
     public float speed = 70;
     private float HandSpeed;
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    rotationText.text = collision.collider.name;
+    //}
 
     private void Start()
     {
@@ -62,7 +67,7 @@ public class SwingingArmMotion : MonoBehaviour
         // HandSpeed = ((leftHandDistanceMoved - playerDistanceMoved) + (rightHandDistanceMoved - playerDistanceMoved));
         HandSpeed = ((leftHandDistanceMoved  + rightHandDistanceMoved ) + (leftHandRotationMoved + rightHandRotationMoved));
 
-        rotationText.text = HandSpeed.ToString();
+        //rotationText.text = HandSpeed.ToString();
 
         if (Time.timeSinceLevelLoad > 1f)
             transform.position += ForwardDirection.transform.forward.normalized * HandSpeed * speed;
