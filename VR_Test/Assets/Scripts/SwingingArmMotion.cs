@@ -10,7 +10,7 @@ public class SwingingArmMotion : MonoBehaviour
     public GameObject CenterEyeCamera;
     public GameObject ForwardDirection;
 
-    public Text rotationText;
+    //public Text rotationText;
 
     private Vector3 PositionPreviousFrameLeftHand;
     private Vector3 PositionPreviousFrameRightHand;
