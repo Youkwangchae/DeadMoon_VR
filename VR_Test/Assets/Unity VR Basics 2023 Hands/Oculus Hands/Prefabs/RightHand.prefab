@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 3240524871626806228}
   - component: {fileID: 3240524871636401154}
   - component: {fileID: 5797800767481223700}
+  - component: {fileID: 5641443980362190960}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -390,6 +391,19 @@ MonoBehaviour:
     type: 3}
   triggerInputActionReference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+--- !u!114 &5641443980362190960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240524871627034548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78574cda0c61fb40a73b99ef0e54b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PokeAttachPoint: {fileID: 3240524871626806254}
 --- !u!1 &3240524871627034550
 GameObject:
   m_ObjectHideFlags: 0
