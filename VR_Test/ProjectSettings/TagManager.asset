@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Amulet
+  - LeftCorner
+  - RightTurnSpot
+  - LeftTurnSpot
+  - RightCorner
+  - Map1_R
+  - Map1_L
   layers:
   - Default
   - TransparentFX
@@ -13,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
+  - Amulets
   - 
   - 
   - 
