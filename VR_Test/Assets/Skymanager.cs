@@ -5,11 +5,15 @@ using UnityEngine;
 public class Skymanager : MonoBehaviour
 {
     public float skyspeed;
+    private float initialRotation = 140.0f; 
 
+    void Start()
+    {
+        RenderSettings.skybox.SetFloat("_Rotation", initialRotation);
+    }
 
-    // Update is called once per frame
     void Update()
     {
-        RenderSettings.skybox.SetFloat("_Rotation",Time.time*skyspeed);
+        RenderSettings.skybox.SetFloat("_Rotation", initialRotation + Time.time * skyspeed);
     }
 }
