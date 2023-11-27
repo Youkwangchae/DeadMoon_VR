@@ -12,7 +12,7 @@ public class SetPokeToFingerAttachPointL : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _xrPokeInterator = transform.parent.parent.GetComponentInChildren<XRPokeInteractor>();
+        _xrPokeInterator = transform.parent.GetComponentInChildren<XRPokeInteractor>();
         SetPokeAttachPoint();
     }
 
