@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 1642338732}
   - component: {fileID: 1642338731}
   m_Layer: 0
-  m_Name: Plane (4)
+  m_Name: kekkai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1671,8 +1671,8 @@ Transform:
   m_GameObject: {fileID: 1642338730}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.3687224, y: 8.0394745, z: 0.81}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.03, y: 3.59, z: -5.08}
+  m_LocalScale: {x: 0.7, y: 0, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
