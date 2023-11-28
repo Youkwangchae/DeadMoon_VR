@@ -12,6 +12,7 @@ TagManager:
   - RightCorner
   - Map1_R
   - Map1_L
+  - Count
   layers:
   - Default
   - TransparentFX

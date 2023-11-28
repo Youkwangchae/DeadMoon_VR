@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class BullsAndCows : MonoBehaviour
 {    
     public Outline[] card_outlines;
+    public GameObject Explain2;
+    public GameObject Explain3;
 
     public float duration = 2.0f;
 
@@ -33,6 +35,7 @@ public class BullsAndCows : MonoBehaviour
 
     public bool isGameovernow = false;
     private bool isTouchBlocked = false;
+    private bool Gamebullclear_tutorial = false; //게임 끝 여부
 
     IEnumerator CO_Gameover()
     {
@@ -59,12 +62,13 @@ public class BullsAndCows : MonoBehaviour
 
         isStartBulls = false;
         isClearBulls = true;
-
+        
         StartCoroutine(CO_ClearBulls());
     }
 
     IEnumerator RotateAmulets()
     {
+
         for (int i=0;i< card_outlines.Length;i++)
         {
             MeshRenderer renderer = card_outlines[i].GetComponent<MeshRenderer>();
@@ -119,6 +123,8 @@ public class BullsAndCows : MonoBehaviour
         }
 
         amuletTransform.position = endPosition;
+
+        Gamebullclear_tutorial = true;
     }
 
     IEnumerator CO_ClearBulls()
@@ -133,11 +139,21 @@ public class BullsAndCows : MonoBehaviour
 
         // 나아갈 방향으로 부적 90도 돌리기
         StartCoroutine(RotateAmulets());
-
+        
+        Explain2.SetActive(false);
+        yield return new WaitForSeconds(4f);
+        Explain3.SetActive(true);
         // 게임 클리어 씬으로 이동.
         //SceneManager.LoadScene("GameClear");
     }
 
+    public void CheckNext()
+    {
+        if (Gamebullclear_tutorial==true) { 
+            SceneManager.LoadScene("Level 1 VR");
+           
+        }
+    }
     // 게임 오버
     public void FailedBulls()
     {        
@@ -319,7 +335,9 @@ public class BullsAndCows : MonoBehaviour
         if (isCorrect)
         {
             Debug.Log("숫자야구 클리어");
+            
             ClearBulls();
+
         }
         else
         {
