@@ -1712,7 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e6e91e2bd6f4f4eaeb91314def2ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 3253861420421012760, guid: a0a1ccfd8bfd3e444bbe01586283263b, type: 3}
   speed: 12
   spawn2: {fileID: 0}
   spawn3_L: {fileID: 0}

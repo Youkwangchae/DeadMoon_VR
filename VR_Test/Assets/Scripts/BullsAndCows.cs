@@ -9,6 +9,8 @@ public class BullsAndCows : MonoBehaviour
 {    
     public Outline[] card_outlines;
 
+    public float duration = 2.0f;
+
     private List<int> answer_list = new List<int>();
     private List<int> puzzle_list = new List<int>();
     private bool isSelectedNow = false;
@@ -25,12 +27,12 @@ public class BullsAndCows : MonoBehaviour
 
     public Slider time_slider;
 
-    public GameObject block_Touch;
     public AmuletController amuletController;
 
     private System.Action _callback;
 
     public bool isGameovernow = false;
+    private bool isTouchBlocked = false;
 
     IEnumerator CO_Gameover()
     {
@@ -61,12 +63,79 @@ public class BullsAndCows : MonoBehaviour
         StartCoroutine(CO_ClearBulls());
     }
 
+    IEnumerator RotateAmulets()
+    {
+        for (int i=0;i< card_outlines.Length;i++)
+        {
+            MeshRenderer renderer = card_outlines[i].GetComponent<MeshRenderer>();
+            if (renderer != null)
+            {
+                renderer.enabled = true;
+                StartCoroutine(RotateAmulet(card_outlines[i].transform, i));
+            }
+        }
+        yield return null;
+    }
+
+    IEnumerator RotateAmulet(Transform amuletTransform, int index)
+    {
+        float elapsedTime = 0;
+        Vector3 starAngle = amuletTransform.localEulerAngles;
+
+        Vector3 endAngle = Vector3.zero;
+
+        if (index < 2)
+            endAngle = new Vector3(0, 0, 90);
+        else if (index == 2)
+            endAngle = new Vector3(0, 90, -90);
+        else
+            endAngle = new Vector3(0, 0, -90);
+
+        while (elapsedTime < duration)
+        {
+            amuletTransform.localEulerAngles = Vector3.Lerp(starAngle, endAngle, (elapsedTime / duration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        amuletTransform.localEulerAngles = endAngle;
+
+        yield return null;
+
+        StartCoroutine(MoveAmulet(amuletTransform));
+    }
+
+    IEnumerator MoveAmulet(Transform amuletTransform)
+    {
+        float elapsedTime = 0;
+        Vector3 startPosition = amuletTransform.position;
+        Vector3 endPosition = new Vector3(startPosition.x, startPosition.y, -10);
+
+        while (elapsedTime < duration)
+        {
+            amuletTransform.position = Vector3.Lerp(startPosition, endPosition, (elapsedTime / duration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        amuletTransform.position = endPosition;
+    }
+
     IEnumerator CO_ClearBulls()
     {
+        // 버튼 숨기기
+        for(int i=0;i< card_outlines.Length;i++)
+        {
+            card_outlines[i].transform.GetChild(0).gameObject.SetActive(false);
+        }
+
         yield return new WaitForSeconds(0.5f);
 
+        // 나아갈 방향으로 부적 90도 돌리기
+        StartCoroutine(RotateAmulets());
+
         // 게임 클리어 씬으로 이동.
-        SceneManager.LoadScene("GameClear");
+        //SceneManager.LoadScene("GameClear");
     }
 
     // 게임 오버
@@ -82,7 +151,7 @@ public class BullsAndCows : MonoBehaviour
         Debug.Log("다음 기회에");
 
         // 부적 모은거 초기화
-        amuletController.Set_Init();
+        //amuletController.Set_Init();
 
         // 모든 관아에서 다 시도했음.
         if (ContinueScript.instance.level == 2)
@@ -95,14 +164,14 @@ public class BullsAndCows : MonoBehaviour
             // 카메라2 끄고 카메라 1키고 Priest speed 15로 설정.
             _callback.Invoke();
 
-            block_Touch.SetActive(true);
+            isTouchBlocked = true;
         }
     }
 
     public void StartBulls(System.Action callback)
     {
-        time_slider.gameObject.SetActive(true);
-        time_slider.value = 10;
+        //time_slider.gameObject.SetActive(true);
+        //time_slider.value = 10;
 
         isStartBulls = true;        
 
@@ -113,14 +182,16 @@ public class BullsAndCows : MonoBehaviour
 
         _callback = callback;
 
-        block_Touch.SetActive(false);
+        isTouchBlocked = false;
     }
 
     public void init()
     {
-        time_slider.gameObject.SetActive(false);
+        //time_slider.gameObject.SetActive(false);
         isStartBulls = false;
         isClearBulls = false;
+
+        puzzle_list.Clear();
 
         _levelCount = 0;
 
@@ -156,25 +227,25 @@ public class BullsAndCows : MonoBehaviour
 
         while(progress < 1)
         {
-            target.effectColor = Color.Lerp(target.effectColor, targetColor, progress);
+            target.OutlineColor = Color.Lerp(target.OutlineColor, targetColor, progress);
             progress += increment;
             yield return new WaitForFixedUpdate();
         }
 
         yield return null;
 
-        target.effectColor = targetColor;
+        target.OutlineColor = targetColor;
         progress = 0;
         yield return null;
 
         while (progress < 1)
         {
-            target.effectColor = Color.Lerp(targetColor, Color.clear, progress);
+            target.OutlineColor = Color.Lerp(targetColor, Color.clear, progress);
             progress += increment;
             yield return new WaitForFixedUpdate();
         }
 
-        target.effectColor = Color.clear;
+        target.OutlineColor = Color.clear;
 
         yield return null;
 
@@ -191,14 +262,14 @@ public class BullsAndCows : MonoBehaviour
 
         while (progress < 1)
         {
-            target.effectColor = Color.Lerp(target.effectColor, targetColor, progress);
+            target.OutlineColor = Color.Lerp(target.OutlineColor, targetColor, progress);
             progress += increment;
             yield return new WaitForFixedUpdate();
         }
 
         yield return null;
 
-        target.effectColor = targetColor;
+        target.OutlineColor = targetColor;
 
         yield return null;
 
@@ -210,17 +281,36 @@ public class BullsAndCows : MonoBehaviour
     {
         bool isCorrect = true;
 
-        for(int i=0;i<answer_list.Count;i++)
+        if(ContinueScript.instance == null)
         {
-            if (answer_list[i] == ContinueScript.instance.puzzle_list[i])
+            for (int i = 0; i < answer_list.Count; i++)
             {
-                Correct(i);
+                if (answer_list[i] == puzzle_list[i])
+                {
+                    Correct(i);
+                }
+                else
+                {
+                    isCorrect = false;
+                    Wrong(i);
+
+                }
             }
-            else
+        }
+        else
+        {
+            for (int i = 0; i < answer_list.Count; i++)
             {
-                isCorrect = false;
-                Wrong(i);
-                
+                if (answer_list[i] == ContinueScript.instance.puzzle_list[i])
+                {
+                    Correct(i);
+                }
+                else
+                {
+                    isCorrect = false;
+                    Wrong(i);
+
+                }
             }
         }
 
@@ -304,10 +394,20 @@ public class BullsAndCows : MonoBehaviour
 
     private void Start()
     {
-        if(ContinueScript.instance.level == 0)
-        SetRandomPuzzle();
+        if(ContinueScript.instance == null)
+        {
+            puzzle_list.Add(0);
+            puzzle_list.Add(1);
+            puzzle_list.Add(2);
+            puzzle_list.Add(3);
+        }
+        else
+        {
+            if (ContinueScript.instance.level == 0)
+                SetRandomPuzzle();
+        }
 
-        block_Touch.SetActive(true);
+        isTouchBlocked = true;
     }
 
     private void FixedUpdate()
@@ -316,7 +416,7 @@ public class BullsAndCows : MonoBehaviour
         {
             _timer -= Time.deltaTime;
 
-            time_slider.value = _timer;
+            //time_slider.value = _timer;
 
             if (_timer < 0)
             {

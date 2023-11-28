@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShrineAmuletSpawner : MonoBehaviour
 {
+    public BullsAndCows bullsAndCows;
     public float duration = 2.0f;
 
     public void ActivateAmulets()
@@ -24,6 +25,8 @@ public class ShrineAmuletSpawner : MonoBehaviour
             }
         }
         yield return null;
+
+        bullsAndCows.StartBulls(null);
     }
 
     IEnumerator MoveAmulet(Transform amuletTransform)

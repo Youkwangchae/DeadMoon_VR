@@ -27,13 +27,17 @@ public class SwingingArmMotion : MonoBehaviour
     public float speed = 70;
     private float HandSpeed;
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    rotationText.text = collision.collider.name;
-    //}
+    private Rigidbody rigidbody;
+
+    private void OnCollisionExit(Collision collision)
+    {
+        rigidbody.velocity = Vector3.zero;
+    }
 
     private void Start()
     {
+        rigidbody = transform.GetComponent<Rigidbody>();
+
         PlayerPositionPreviousFrame = transform.localPosition;
         PositionPreviousFrameLeftHand = LeftHand.transform.localPosition;
         PositionPreviousFrameRightHand = RightHand.transform.localPosition;
@@ -65,7 +69,9 @@ public class SwingingArmMotion : MonoBehaviour
         var rightHandRotationMoved = Vector3.Angle(RotationPreviousFrameRightHand, RotationThisFrameRightHand);
 
         // HandSpeed = ((leftHandDistanceMoved - playerDistanceMoved) + (rightHandDistanceMoved - playerDistanceMoved));
-        HandSpeed = ((leftHandDistanceMoved  + rightHandDistanceMoved ) + (leftHandRotationMoved + rightHandRotationMoved));
+        //HandSpeed = ((leftHandDistanceMoved  + rightHandDistanceMoved ) + (leftHandRotationMoved + rightHandRotationMoved));
+
+        HandSpeed = (leftHandDistanceMoved + rightHandDistanceMoved);
 
         //rotationText.text = HandSpeed.ToString();
 
@@ -80,6 +86,9 @@ public class SwingingArmMotion : MonoBehaviour
 
         PositionPreviousFrameLeftHand = PositionThisFrameLeftHand;
         PositionPreviousFrameRightHand = PositionThisFrameRightHand;
+
+        RotationPreviousFrameLeftHand = RotationThisFrameLeftHand;
+        RotationPreviousFrameRightHand = RotationThisFrameRightHand;
 
         PlayerPositionPreviousFrame = PlayerPositionThisFrame;
     }
