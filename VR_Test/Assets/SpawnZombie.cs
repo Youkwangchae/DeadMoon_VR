@@ -11,15 +11,14 @@ public class SpawnZombie : MonoBehaviour
     private bool Onplayer;
     private bool Oneturn = true;
     private float time = 0;
-    public AudioSource zombieSpawnSound;
+    public GameObject soundbox;
 
     // Start is called before the first frame update
     void Start()
     {
         zombie = transform.GetChild(0).gameObject;
         Onplayer = false;
-        zombieSpawnSound = zombie.AddComponent<AudioSource>();
-        zombieSpawnSound.loop = false;
+        soundbox = transform.GetChild(1).gameObject;
     }
 
     // Update is called once per frame
@@ -56,5 +55,6 @@ public class SpawnZombie : MonoBehaviour
     void ActivateZombie()
     {
         zombie.GetComponent<Enemy>().enabled = true;
+        soundbox.GetComponent<AudioSource>().enabled = true;
     }
 }
