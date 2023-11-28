@@ -17,12 +17,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Losescene.unity
     guid: 4d0590ed5768af945b39e8768fd7d531
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tutorial_Shrine.unity
     guid: 73384152a32405e498db56d170b3f27d
   - enabled: 0
     path: Assets/Scenes/Level3_Shrine.unity
     guid: 2ee49c89a2c8f2c4192359b70ecde666
+  - enabled: 1
+    path: Assets/Scenes/Level 1 VR.unity
+    guid: 6a7e2915cfafd2c46b80a5b466e13590
+  - enabled: 1
+    path: Assets/Scenes/Level1_Shrine.unity
+    guid: 591b165ac918dac489baa80c5d22d0e5
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b40094c897a6e434986dc70e79339d78,
       type: 2}
