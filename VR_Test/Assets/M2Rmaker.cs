@@ -11,7 +11,7 @@ public class M2Rmaker : MonoBehaviour
     private float duration = 1.0f;
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Priest")
+        if (other.gameObject.name == "XR Origin (XR Rig)")
         {
 
             print("R activate");

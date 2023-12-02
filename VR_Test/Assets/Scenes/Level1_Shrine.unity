@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.013114367, g: 0.0069204234, b: 0.011668304, a: 1}
+  m_IndirectSpecularColor: {r: 0.013181357, g: 0.006941098, b: 0.011717433, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11170,6 +11170,8 @@ MonoBehaviour:
   - {fileID: 1981869454}
   - {fileID: 2142076139}
   - {fileID: 773112405}
+  Explain2: {fileID: 0}
+  Explain3: {fileID: 0}
   duration: 2
   isStartBulls: 0
   timeLong: 10
@@ -13015,6 +13017,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kekkai
       objectReference: {fileID: 0}
+    - target: {fileID: 6272183080841378379, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 12dcc9b85ee8e964eb3d496a9b896ca1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
