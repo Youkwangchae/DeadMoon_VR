@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class BullsAndCows : MonoBehaviour
 {    
     public Outline[] card_outlines;
@@ -21,6 +20,7 @@ public class BullsAndCows : MonoBehaviour
     public bool isStartBulls = false;   // 숫자야구 시작 여부
     private bool isStartEffects = false;    // 관아에서 5초 뒤 소리 났는지 여부.
     public float timeLong = 10f;           // 숫자야구 시간 제한
+    public int chanceLeft = 3;              // 남은 횟수. (턴 제)
     private float _timer = -1f;           // 실제 타이머 시간.
 
     [HideInInspector]
@@ -44,7 +44,7 @@ public class BullsAndCows : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         // 게임 오버 씬으로 이동.
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("Losescene");
     }
 
     public void GoToGameOver()
@@ -133,6 +133,7 @@ public class BullsAndCows : MonoBehaviour
         for(int i=0;i< card_outlines.Length;i++)
         {
             card_outlines[i].transform.GetChild(0).gameObject.SetActive(false);
+            card_outlines[i].transform.GetChild(1).gameObject.SetActive(false);
         }
 
         yield return new WaitForSeconds(0.5f);
@@ -154,6 +155,7 @@ public class BullsAndCows : MonoBehaviour
            
         }
     }
+
     // 게임 오버
     public void FailedBulls()
     {        
@@ -177,8 +179,14 @@ public class BullsAndCows : MonoBehaviour
         }
         else
         {
-            // 카메라2 끄고 카메라 1키고 Priest speed 15로 설정.
-            _callback.Invoke();
+            if(ContinueScript.instance.level == 2)
+            SceneManager.LoadScene("Losescene");
+            else
+            {
+                // 다음 레벨로 이동.
+                ContinueScript.instance.level++;
+                SceneManager.LoadScene("Level "+ (ContinueScript.instance.level+1).ToString() + "VR");
+            }
 
             isTouchBlocked = true;
         }
@@ -194,7 +202,7 @@ public class BullsAndCows : MonoBehaviour
         _timer = timeLong;
 
         // 숨 헐떡 멈추기
-        SoundController.instance.SoundControll("man_breath", false, SoundController.SoundAct.Stop);      
+        //SoundController.instance.SoundControll("man_breath", false, SoundController.SoundAct.Stop);      
 
         _callback = callback;
 
@@ -223,7 +231,7 @@ public class BullsAndCows : MonoBehaviour
         if (!answer_list.Contains(index))
         {
             answer_list.Add(index);
-            Selected(index);
+            Selected(index);            
             return;
         }
         else
@@ -297,21 +305,20 @@ public class BullsAndCows : MonoBehaviour
     {
         bool isCorrect = true;
 
-        if(ContinueScript.instance == null)
+        if (ContinueScript.instance == null)
         {
             for (int i = 0; i < answer_list.Count; i++)
             {
                 if (answer_list[i] == puzzle_list[i])
                 {
-                    Correct(i);
+                    Correct(answer_list[i]);
                 }
                 else
                 {
                     isCorrect = false;
-                    Wrong(i);
-
+                    Wrong(answer_list[i]);
                 }
-            }
+            }            
         }
         else
         {
@@ -319,13 +326,12 @@ public class BullsAndCows : MonoBehaviour
             {
                 if (answer_list[i] == ContinueScript.instance.puzzle_list[i])
                 {
-                    Correct(i);
+                    Correct(answer_list[i]);
                 }
                 else
                 {
                     isCorrect = false;
-                    Wrong(i);
-
+                    Wrong(answer_list[i]);
                 }
             }
         }
@@ -337,13 +343,18 @@ public class BullsAndCows : MonoBehaviour
             Debug.Log("숫자야구 클리어");
             
             ClearBulls();
-
         }
         else
         {
             Debug.Log("숫자야구 실패");
-            
-        }
+
+            chanceLeft--;
+
+            if(chanceLeft == 0)
+            {
+                FailedBulls();
+            }
+        }   
     }
 
     public void UnSelected(int index)
@@ -354,14 +365,15 @@ public class BullsAndCows : MonoBehaviour
     public void Selected(int index)
     {
         // 부적 선택.
-        SoundController.instance.SoundControll("item_use", false, SoundController.SoundAct.Play);
+        card_outlines[index].GetComponent<AudioSource>().Play();
+        //SoundController.instance.SoundControll("item_use", false, SoundController.SoundAct.Play);
+
 
         StartCoroutine(COTintTo(card_outlines[index], Color.yellow, 0.1f, () => { 
 
             if(answer_list.Count == 4)
             {
-                Check_Answer();
-               
+                Check_Answer();               
             }
             else
             {
@@ -372,14 +384,12 @@ public class BullsAndCows : MonoBehaviour
     
     public void Correct(int index)
     {
-        StartCoroutine(COPingPongTintTo(card_outlines[index], Color.magenta, 0.4f, () => { isSelectedNow = false; }));
-      
+        StartCoroutine(COPingPongTintTo(card_outlines[index], Color.magenta, 0.4f, () => { isSelectedNow = false; }));      
     }
 
     public void Wrong(int index)
     {
-        StartCoroutine(COPingPongTintTo(card_outlines[index], Color.cyan, 0.4f, () => { isSelectedNow = false; }));
-        
+        StartCoroutine(COPingPongTintTo(card_outlines[index], Color.cyan, 0.4f, () => { isSelectedNow = false; }));        
     }
 
     public void SetRandomPuzzle()
@@ -404,7 +414,7 @@ public class BullsAndCows : MonoBehaviour
                 Debug.Log("random " + puzzle_list.Count +": "+rand);
                 if(puzzle_list.Count == 4)
                 {                    
-                    isFinish = true;
+                    isFinish = true;                    
                 }
             }
         }        
@@ -412,7 +422,7 @@ public class BullsAndCows : MonoBehaviour
 
     private void Start()
     {
-        if(ContinueScript.instance == null)
+        if (ContinueScript.instance == null)
         {
             puzzle_list.Add(0);
             puzzle_list.Add(1);
@@ -428,30 +438,30 @@ public class BullsAndCows : MonoBehaviour
         isTouchBlocked = true;
     }
 
-    private void FixedUpdate()
-    {
-        if(isStartBulls)
-        {
-            _timer -= Time.deltaTime;
+    //private void FixedUpdate()
+    //{
+    //    if(isStartBulls)
+    //    {
+    //        _timer -= Time.deltaTime;
 
-            //time_slider.value = _timer;
+    //        //time_slider.value = _timer;
 
-            if (_timer < 0)
-            {
-                _timer = -1f;
-                FailedBulls();
-            }
+    //        if (_timer < 0)
+    //        {
+    //            _timer = -1f;
+    //            FailedBulls();
+    //        }
 
-            if(_timer < 5 && !isStartEffects)
-            {
-                isStartEffects = true;
+    //        if(_timer < 5 && !isStartEffects)
+    //        {
+    //            isStartEffects = true;
 
-                // 고스트 웃는 소리 멈추기
-                SoundController.instance.SoundControll("ghost_laugh", false, SoundController.SoundAct.Stop);
+    //            // 고스트 웃는 소리 멈추기
+    //            SoundController.instance.SoundControll("ghost_laugh", false, SoundController.SoundAct.Stop);
 
-                // 문 쾅쾅
-                SoundController.instance.SoundControll("door_bang", false, SoundController.SoundAct.Play);
-            }
-        }
-    }
+    //            // 문 쾅쾅
+    //            SoundController.instance.SoundControll("door_bang", false, SoundController.SoundAct.Play);
+    //        }
+    //    }
+    //}
 }

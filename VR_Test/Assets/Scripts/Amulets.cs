@@ -6,13 +6,22 @@ public class Amulets : MonoBehaviour
 {
     public int charm_Num = 0;
     public AmuletController amuletController;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = transform.GetChild(0).GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Priest")
+        if(other.tag == "Player")
         {
             amuletController.Get_Amulet(charm_Num);
             collide_Amulet();
+
+            // 23.12.02 아이템 사용 효과음
+            audioSource.Play();
         }        
     }
 

@@ -7,6 +7,8 @@ public class AmuletController : MonoBehaviour
 {
     public Button[] amulet_arr;
 
+    public int total_AmuletNum = 0;
+
     // 숫자야구 실패 시 부적 날아감 => 그림자로.
     public void Set_Init()
     {
@@ -18,7 +20,8 @@ public class AmuletController : MonoBehaviour
 
     public void Get_Amulet(int index)
     {
-        amulet_arr[index].interactable = true;
+        total_AmuletNum++;
+        //amulet_arr[index].interactable = true;
     }
 
     private void Start()
