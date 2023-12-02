@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.013122274, g: 0.006915368, b: 0.011665983, a: 1}
+  m_IndirectSpecularColor: {r: 0.013070287, g: 0.006894414, b: 0.011682021, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14951,8 +14951,6 @@ MonoBehaviour:
   - {fileID: 0}
   Explain2: {fileID: 0}
   Explain3: {fileID: 0}
-  answer_Text: {fileID: 0}
-  puzzle_Text: {fileID: 0}
   duration: 2
   isStartBulls: 0
   timeLong: 10
@@ -25558,6 +25556,7 @@ MonoBehaviour:
   - {fileID: 544077865}
   - {fileID: 2060622695}
   - {fileID: 531026199}
+  total_AmuletNum: 0
 --- !u!4 &1445568505
 Transform:
   m_ObjectHideFlags: 0
@@ -33704,6 +33703,79 @@ Transform:
   - {fileID: 1288868410}
   m_Father: {fileID: 696398896}
   m_LocalEulerAnglesHint: {x: -21.7661, y: -23.704796, z: -56.41159}
+--- !u!1001 &1937205427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 176.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 178.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.27059793
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.27059793
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.65328157
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.65328157
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 641189653164349716, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1082009002362111522, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_Name
+      value: kekkai
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272183080841378379, guid: 26a0976055fc2dd489a7adfb2d13c297,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c9fd3265eb3e2c4eb7130605f145243, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 26a0976055fc2dd489a7adfb2d13c297, type: 3}
 --- !u!1 &1940681972
 GameObject:
   m_ObjectHideFlags: 0
@@ -43115,6 +43187,7 @@ SceneRoots:
   - {fileID: 1203590638}
   - {fileID: 1021551917}
   - {fileID: 4507087929077320033}
+  - {fileID: 1937205427}
   - {fileID: 1667324025}
   - {fileID: 1445568505}
   - {fileID: 2047772610}
