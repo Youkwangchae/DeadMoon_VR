@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class AmuletController : MonoBehaviour
 {
+    public static AmuletController i;
+
     public Button[] amulet_arr;
 
     public int total_AmuletNum = 0;
@@ -26,6 +28,7 @@ public class AmuletController : MonoBehaviour
 
     private void Start()
     {
+        i = this;
         Set_Init();
     }
 }

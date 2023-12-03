@@ -10,7 +10,7 @@ public class SettingVignette : MonoBehaviour
     public Volume volume;
     UnityEngine.Rendering.Universal.Vignette vignette;
     float delta;
-    float duration = 10.0f;
+    float duration = 20.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class SettingVignette : MonoBehaviour
         {
             float time = delta / duration;
 
-            vignette.intensity.value += (1 - vignette.intensity.value) * (time);
+            vignette.intensity.value += ((1 - vignette.intensity.value)/2) * (time);
 
             delta += Time.deltaTime;
         }

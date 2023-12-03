@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
@@ -18,12 +19,14 @@ public class Enemy : MonoBehaviour
     public Transform spawn2;
     public Transform spawn3_L;
     public Transform spawn3_R;
+    public Volume volume;
 
     //BullsAndCows bulls;
 
     // Start is called before the first frame update
     void Start()
     {
+        volume = GameObject.Find("PPVolume").GetComponent<Volume>();
         rigid = GetComponent<Rigidbody>();
         //collider = GetComponent<CapsuleCollider>();
         animator = GetComponent<Animator>();
@@ -104,9 +107,16 @@ public class Enemy : MonoBehaviour
             // 걸음을 멈추고 공격.
             animator.SetBool("isWalking", false);
             Debug.Log("충돌");
-            SceneManager.LoadScene("Losescene");
+            volume.GetComponent<SettingVignette>().enabled = true;
+            StartCoroutine(CallLoseScene());
             // 게임 오버 호출
            // bulls.GoToGameOver();
         }
+    }
+
+    IEnumerator CallLoseScene()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("Losescene");
     }
 }
