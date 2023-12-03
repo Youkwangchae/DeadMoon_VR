@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/XR Test.unity
     guid: ad03e24bfb8bb264da7618496ad5a158
   - enabled: 0
-    path: Assets/Scenes/Losescene.unity
+    path: Assets/Scenes/LoseScene.unity
     guid: e24dac7dcb0c66943a6adbd2ad4b1acc
   - enabled: 0
     path: Assets/Scenes/Level3_Shrine.unity
@@ -41,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 3 VR.unity
     guid: b300507503c96a84ebc857b215589e5a
+  - enabled: 1
+    path: Assets/Scenes/LoseScene_ver2.unity
+    guid: 7693c546ddc1c924da275e7df91d9def
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b40094c897a6e434986dc70e79339d78,
       type: 2}
