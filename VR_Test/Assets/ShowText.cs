@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class ShowText : MonoBehaviour
