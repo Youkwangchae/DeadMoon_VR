@@ -145,7 +145,7 @@ public class BullsAndCows : MonoBehaviour
         yield return new WaitForSeconds(4f);
         Explain3.SetActive(true);
         // 게임 클리어 씬으로 이동.
-        //SceneManager.LoadScene("GameClear");
+        SceneManager.LoadScene("WinScene");
     }
 
     public void CheckNext()
@@ -185,7 +185,7 @@ public class BullsAndCows : MonoBehaviour
             {
                 // 다음 레벨로 이동.
                 ContinueScript.instance.level++;
-                SceneManager.LoadScene("Level "+ (ContinueScript.instance.level+1).ToString() + "VR");
+                SceneManager.LoadScene("Level "+ (ContinueScript.instance.level+1).ToString() + " VR");
             }
 
             isTouchBlocked = true;
