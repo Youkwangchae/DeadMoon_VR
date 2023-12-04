@@ -22,7 +22,7 @@ public class AroundZombie : MonoBehaviour
             if (volume.profile.TryGet(out vignette))
             {
                 vignette.color.value = Color.red;
-                vignette.intensity.value = 0.5f;
+                vignette.intensity.value = 0.4f;
             }
         }
     }
