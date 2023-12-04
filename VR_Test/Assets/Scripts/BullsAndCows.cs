@@ -9,6 +9,8 @@ public class BullsAndCows : MonoBehaviour
     public Outline[] card_outlines;
     public GameObject Explain2;
     public GameObject Explain3;
+    public GameObject Arrow_Parent;
+    public GameObject GIF;
 
     public float duration = 2.0f;
 
@@ -62,7 +64,13 @@ public class BullsAndCows : MonoBehaviour
 
         isStartBulls = false;
         isClearBulls = true;
-        
+
+        if (ContinueScript.instance == null && Arrow_Parent != null)
+        {
+            Arrow_Parent.SetActive(false);
+            GIF.SetActive(false);
+        }
+
         StartCoroutine(CO_ClearBulls());
     }
 
@@ -360,6 +368,19 @@ public class BullsAndCows : MonoBehaviour
     public void UnSelected(int index)
     {
         StartCoroutine(COTintTo(card_outlines[index], Color.clear, 0.1f, () => { isSelectedNow = false; }));
+
+        // 23.12.04 튜토리얼이면 다음 화살표 제시
+        if (ContinueScript.instance == null && Arrow_Parent != null)
+        {
+            if(answer_list.Count < 4)
+            {
+                // 다음 정답 위의 화살표만 뜨도록.
+                for (int i = 0; i < Arrow_Parent.transform.childCount; i++)
+                {
+                    Arrow_Parent.transform.GetChild(i).gameObject.SetActive(i == puzzle_list[answer_list.Count]);
+                }
+            }
+        }
     }
 
     public void Selected(int index)
@@ -368,6 +389,18 @@ public class BullsAndCows : MonoBehaviour
         card_outlines[index].GetComponent<AudioSource>().Play();
         //SoundController.instance.SoundControll("item_use", false, SoundController.SoundAct.Play);
 
+        // 23.12.04 튜토리얼이면 다음 화살표 제시
+        if(ContinueScript.instance == null && Arrow_Parent != null)
+        {
+            if (answer_list.Count < 4)
+            {
+                // 다음 정답 위의 화살표만 뜨도록.
+                for (int i = 0; i < Arrow_Parent.transform.childCount; i++)
+                {
+                    Arrow_Parent.transform.GetChild(i).gameObject.SetActive(i == puzzle_list[answer_list.Count]);
+                }
+            }                
+        }
 
         StartCoroutine(COTintTo(card_outlines[index], Color.yellow, 0.1f, () => { 
 
@@ -424,15 +457,24 @@ public class BullsAndCows : MonoBehaviour
     {
         if (ContinueScript.instance == null)
         {
+            // 23.12.04 1-2-3-4에서 1-3-2-4로 변경.
             puzzle_list.Add(0);
-            puzzle_list.Add(1);
             puzzle_list.Add(2);
+            puzzle_list.Add(1);
             puzzle_list.Add(3);
+
+            //Arrow_Parent.SetActive(true);
+
+            // 첫번째 정답 위의 화살표만 뜨도록.
+            for(int i=0;i<Arrow_Parent.transform.childCount;i++)
+            {
+                Arrow_Parent.transform.GetChild(i).gameObject.SetActive(i == puzzle_list[0]);
+            }
         }
         else
         {
             if (ContinueScript.instance.level == 0)
-                SetRandomPuzzle();
+                SetRandomPuzzle();            
         }
 
         isTouchBlocked = true;
