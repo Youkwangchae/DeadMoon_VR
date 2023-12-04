@@ -13,6 +13,7 @@ TagManager:
   - Map1_R
   - Map1_L
   - Count
+  - grave
   layers:
   - Default
   - TransparentFX
