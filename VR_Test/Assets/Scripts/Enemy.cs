@@ -50,12 +50,12 @@ public class Enemy : MonoBehaviour
 
             case "¸Ê3_L":
                 transform.position = spawn3_L.position;
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                transform.eulerAngles = new Vector3(0, 90, 0);
                 break;
 
             case "¸Ê3_R":
                 transform.position = spawn3_R.position;
-                transform.eulerAngles = new Vector3(0, 180, 0);
+                transform.eulerAngles = new Vector3(0, 90, 0);
                 break;
         }
 

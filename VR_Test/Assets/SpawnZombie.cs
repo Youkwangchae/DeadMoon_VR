@@ -18,7 +18,7 @@ public class SpawnZombie : MonoBehaviour
     {
         zombie = transform.GetChild(0).gameObject;
         Onplayer = false;
-        soundbox = transform.GetChild(1).gameObject;
+        soundbox = transform.GetChild(1).gameObject;    
     }
 
     // Update is called once per frame
