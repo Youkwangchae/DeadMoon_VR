@@ -10,6 +10,7 @@ public class BullsAndCows : MonoBehaviour
     public GameObject Explain2;
     public GameObject Explain3;
     public GameObject Arrow_Parent;
+    public GameObject GIF;
 
     public float duration = 2.0f;
 
@@ -63,7 +64,13 @@ public class BullsAndCows : MonoBehaviour
 
         isStartBulls = false;
         isClearBulls = true;
-        
+
+        if (ContinueScript.instance == null && Arrow_Parent != null)
+        {
+            Arrow_Parent.SetActive(false);
+            GIF.SetActive(false);
+        }
+
         StartCoroutine(CO_ClearBulls());
     }
 
@@ -365,10 +372,13 @@ public class BullsAndCows : MonoBehaviour
         // 23.12.04 튜토리얼이면 다음 화살표 제시
         if (ContinueScript.instance == null && Arrow_Parent != null)
         {
-            // 다음 정답 위의 화살표만 뜨도록.
-            for (int i = 0; i < Arrow_Parent.transform.childCount; i++)
+            if(answer_list.Count < 4)
             {
-                Arrow_Parent.transform.GetChild(i).gameObject.SetActive(i == puzzle_list[answer_list.Count]);
+                // 다음 정답 위의 화살표만 뜨도록.
+                for (int i = 0; i < Arrow_Parent.transform.childCount; i++)
+                {
+                    Arrow_Parent.transform.GetChild(i).gameObject.SetActive(i == puzzle_list[answer_list.Count]);
+                }
             }
         }
     }
@@ -382,11 +392,14 @@ public class BullsAndCows : MonoBehaviour
         // 23.12.04 튜토리얼이면 다음 화살표 제시
         if(ContinueScript.instance == null && Arrow_Parent != null)
         {
-            // 다음 정답 위의 화살표만 뜨도록.
-            for (int i = 0; i < Arrow_Parent.transform.childCount; i++)
+            if (answer_list.Count < 4)
             {
-                Arrow_Parent.transform.GetChild(i).gameObject.SetActive(i == puzzle_list[answer_list.Count]);
-            }
+                // 다음 정답 위의 화살표만 뜨도록.
+                for (int i = 0; i < Arrow_Parent.transform.childCount; i++)
+                {
+                    Arrow_Parent.transform.GetChild(i).gameObject.SetActive(i == puzzle_list[answer_list.Count]);
+                }
+            }                
         }
 
         StartCoroutine(COTintTo(card_outlines[index], Color.yellow, 0.1f, () => { 
@@ -450,7 +463,7 @@ public class BullsAndCows : MonoBehaviour
             puzzle_list.Add(1);
             puzzle_list.Add(3);
 
-            Arrow_Parent.SetActive(true);
+            //Arrow_Parent.SetActive(true);
 
             // 첫번째 정답 위의 화살표만 뜨도록.
             for(int i=0;i<Arrow_Parent.transform.childCount;i++)

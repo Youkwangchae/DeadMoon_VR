@@ -27,6 +27,13 @@ public class ShrineAmuletSpawner : MonoBehaviour
         yield return null;
 
         bullsAndCows.StartBulls(null);
+
+        yield return new WaitForSeconds(duration);
+
+        if(bullsAndCows.Arrow_Parent != null)
+        {
+            bullsAndCows.Arrow_Parent.SetActive(true);
+        }
     }
 
     IEnumerator MoveAmulet(Transform amuletTransform)
