@@ -17,6 +17,7 @@ public class R_maker : MonoBehaviour
             
             print("R activate");
             Wall_R_Prefab.GetComponent<MeshRenderer>().enabled = true;
+            Wall_R_Prefab.GetComponent<BoxCollider>().enabled = true;
 
             /*if (!isOpening)
             {

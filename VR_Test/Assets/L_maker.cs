@@ -18,6 +18,7 @@ public class L_maker : MonoBehaviour
             
             print("L activate");
             Wall_L_Prefab.GetComponent<MeshRenderer>().enabled = true;
+            Wall_L_Prefab.GetComponent<BoxCollider>().enabled = true;
 
             /*if (!isOpening)
             {
