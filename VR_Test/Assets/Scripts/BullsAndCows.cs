@@ -49,7 +49,6 @@ public class BullsAndCows : MonoBehaviour
 
         if (ContinueScript.instance.level == 2)
         {
-            ContinueScript.instance.level = 0;
             SceneManager.LoadScene("Losescene");
         }
         else
