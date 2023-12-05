@@ -114,6 +114,7 @@ public class Enemy : MonoBehaviour
             animator.SetBool("isWalking", false);
             Debug.Log("충돌");
             volume.GetComponent<SettingVignette>().enabled = true;
+            ContinueScript.instance.level = 0;
             StartCoroutine(CallLoseScene());
             // 게임 오버 호출
            // bulls.GoToGameOver();

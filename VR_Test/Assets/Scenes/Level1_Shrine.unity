@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.013078525, g: 0.006900701, b: 0.011684796, a: 1}
+  m_IndirectSpecularColor: {r: 0.013109009, g: 0.006924671, b: 0.011667813, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11227,7 +11227,7 @@ MonoBehaviour:
   duration: 2
   isStartBulls: 0
   timeLong: 10
-  chanceLeft: 3
+  chanceLeft: 2
   isClearBulls: 0
   time_slider: {fileID: 0}
   amuletController: {fileID: 0}

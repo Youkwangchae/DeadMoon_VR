@@ -14,6 +14,7 @@ public class Teleport : MonoBehaviour
         }
         else if(collision.collider.tag == "Player" && !(AmuletController.i.total_AmuletNum == 4))
         {
+            ContinueScript.instance.level = 0;
             SceneManager.LoadScene("LoseScene_ver2");
         }
     }
