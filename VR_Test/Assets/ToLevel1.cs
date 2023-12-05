@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class ToLevel1 : MonoBehaviour
 {
+    private void Start()
+    {
+        if(ContinueScript.instance != null)
+        {
+            Destroy(ContinueScript.instance);
+        }
+    }
+
     // Start is called before the first frame update
     public void StartGame()
     {
