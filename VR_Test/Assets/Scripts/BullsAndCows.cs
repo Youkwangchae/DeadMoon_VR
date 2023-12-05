@@ -41,12 +41,26 @@ public class BullsAndCows : MonoBehaviour
 
     IEnumerator CO_Gameover()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        yield return new WaitForSeconds(0.2f);
+        isTouchBlocked = true;
+
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        yield return new WaitForSeconds(0.5f);
 
         // 게임 오버 씬으로 이동.
         SceneManager.LoadScene("Losescene");
+
+        if (ContinueScript.instance.level == 2)
+        {
+            ContinueScript.instance.level = 0;
+            SceneManager.LoadScene("Losescene");
+        }
+        else
+        {
+            // 다음 레벨로 이동.
+            ContinueScript.instance.level++;
+            SceneManager.LoadScene("Level " + (ContinueScript.instance.level + 1).ToString() + " VR");
+        }        
     }
 
     public void GoToGameOver()
@@ -196,25 +210,31 @@ public class BullsAndCows : MonoBehaviour
         // 부적 모은거 초기화
         //amuletController.Set_Init();
 
-        // 모든 관아에서 다 시도했음.
-        if (ContinueScript.instance.level == 2)
-        {
-            // 게임 오버 씬으로 이동.
-            GoToGameOver();
-        }
-        else
-        {
-            if(ContinueScript.instance.level == 2)
-            SceneManager.LoadScene("Losescene");
-            else
-            {
-                // 다음 레벨로 이동.
-                ContinueScript.instance.level++;
-                SceneManager.LoadScene("Level "+ (ContinueScript.instance.level+1).ToString() + " VR");
-            }
+        // 게임 오버 씬으로 이동.
+        GoToGameOver();
 
-            isTouchBlocked = true;
-        }
+        //// 모든 관아에서 다 시도했음.
+        //if (ContinueScript.instance.level == 2)
+        //{
+        //    // 게임 오버 씬으로 이동.
+        //    GoToGameOver();
+        //}
+        //else
+        //{
+        //    if (ContinueScript.instance.level == 2)
+        //    {
+        //        ContinueScript.instance.level = 0;
+        //        SceneManager.LoadScene("Losescene");
+        //    } 
+        //    else
+        //    {
+        //        // 다음 레벨로 이동.
+        //        ContinueScript.instance.level++;
+        //        SceneManager.LoadScene("Level " + (ContinueScript.instance.level + 1).ToString() + " VR");
+        //    }
+
+        //    isTouchBlocked = true;
+        //}
     }
 
     public void StartBulls(System.Action callback)
