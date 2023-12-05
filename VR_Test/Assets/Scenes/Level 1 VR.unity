@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0131704435, g: 0.006955635, b: 0.011736123, a: 1}
+  m_IndirectSpecularColor: {r: 0.013078525, g: 0.006900701, b: 0.011684796, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14953,6 +14953,8 @@ MonoBehaviour:
   - {fileID: 0}
   Explain2: {fileID: 0}
   Explain3: {fileID: 0}
+  Arrow_Parent: {fileID: 0}
+  GIF: {fileID: 0}
   duration: 2
   isStartBulls: 0
   timeLong: 10
@@ -38312,6 +38314,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752952314215148385, guid: f20ebdf8fdebeec4186d717e60e22a29,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
