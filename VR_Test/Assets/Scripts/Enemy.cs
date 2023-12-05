@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(volume == null)
         volume = GameObject.Find("PPVolume").GetComponent<Volume>();
         rigid = GetComponent<Rigidbody>();
         //collider = GetComponent<CapsuleCollider>();
@@ -104,6 +105,11 @@ public class Enemy : MonoBehaviour
     {        
         if (collision.collider.name == "XR Origin (XR Rig)")
         {
+            // 붉게 만드는 AroundZombie Trigger 끄기
+            collision.collider.GetComponentInChildren<AroundZombie>().enabled = false;
+            
+            //GameObject.Find("AroundTrigger").GetComponent<AroundZombie>().enabled = false;
+
             // 걸음을 멈추고 공격.
             animator.SetBool("isWalking", false);
             Debug.Log("충돌");

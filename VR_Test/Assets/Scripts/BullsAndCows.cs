@@ -149,11 +149,28 @@ public class BullsAndCows : MonoBehaviour
         // 나아갈 방향으로 부적 90도 돌리기
         StartCoroutine(RotateAmulets());
         
-        Explain2.SetActive(false);
+        //Explain2.SetActive(false);
         yield return new WaitForSeconds(4f);
-        Explain3.SetActive(true);
-        // 게임 클리어 씬으로 이동.
-        SceneManager.LoadScene("WinScene");
+        //Explain3.SetActive(true);
+
+        if(ContinueScript.instance == null && Arrow_Parent != null)
+        {
+            Explain2.SetActive(false);
+            Explain3.SetActive(true);
+
+            // 튜토리얼에서 아직 안내문 다 못 읽었어도 정답 맞히는 경우의 수 처리.
+            for (var i=0;i<4;i++)
+            {
+                Explain2.transform.parent.GetChild(i).gameObject.SetActive(false);
+            }
+            // 튜토리얼이면 위의 Explain3 Active 되면서 자동으로 5초 뒤 Level 1 VR로 넘어감.
+        }
+        else
+        {
+            // 게임 클리어 씬으로 이동.
+            SceneManager.LoadScene("WinScene");
+        }
+
     }
 
     public void CheckNext()
