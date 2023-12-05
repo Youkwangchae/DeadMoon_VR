@@ -22,7 +22,7 @@ public class BullsAndCows : MonoBehaviour
     public bool isStartBulls = false;   // 숫자야구 시작 여부
     private bool isStartEffects = false;    // 관아에서 5초 뒤 소리 났는지 여부.
     public float timeLong = 10f;           // 숫자야구 시간 제한
-    public int chanceLeft = 3;              // 남은 횟수. (턴 제)
+    public int chanceLeft = 2;              // 남은 횟수. (턴 제)
     private float _timer = -1f;           // 실제 타이머 시간.
 
     [HideInInspector]
@@ -45,10 +45,7 @@ public class BullsAndCows : MonoBehaviour
 
         //Cursor.visible = true;
         //Cursor.lockState = CursorLockMode.None;
-        yield return new WaitForSeconds(0.5f);
-
-        // 게임 오버 씬으로 이동.
-        SceneManager.LoadScene("Losescene");
+        yield return new WaitForSeconds(1f);
 
         if (ContinueScript.instance.level == 2)
         {

@@ -12062,7 +12062,7 @@ MonoBehaviour:
   duration: 2
   isStartBulls: 0
   timeLong: 10
-  chanceLeft: 3
+  chanceLeft: 2
   isClearBulls: 0
   time_slider: {fileID: 273166666}
   amuletController: {fileID: 1445568504}
