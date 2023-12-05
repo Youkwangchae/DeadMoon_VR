@@ -47,6 +47,8 @@ public class SpawnZombie : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Onplayer = true;
+            soundbox.GetComponent<AudioSource>().enabled = true;
+            soundbox.GetComponent<AudioSource>().Play();
             Invoke("ActivateZombie",waitTime);
             Oneturn = false;
         }
@@ -55,6 +57,6 @@ public class SpawnZombie : MonoBehaviour
     void ActivateZombie()
     {
         zombie.GetComponent<Enemy>().enabled = true;
-        soundbox.GetComponent<AudioSource>().enabled = true;
+        
     }
 }
