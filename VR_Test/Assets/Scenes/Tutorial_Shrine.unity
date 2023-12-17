@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3028551, g: 0.72093093, b: 0.88162345, a: 1}
+  m_IndirectSpecularColor: {r: 0.30270803, g: 0.7205233, b: 0.88117987, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5966,11 +5966,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is a shrine! Here, you can beat zombies by combining the order of
-    the amulets!
+  m_text: "\uC5EC\uAE30\uB294 \uC2E0\uC0AC\uC785\uB2C8\uB2E4! \uC5EC\uAE30\uC5D0\uC11C
+    \uBD80\uC801\uB4E4\uC744 \uC870\uD569\uD574\uC11C \uC801\uB4E4\uC744 \uD574\uCE58\uC6B8
+    \uC218 \uC788\uC5B4\uC694!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7382,13 +7384,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'When you press all four amulets, the wrong order becomes <b><color=#00AAFF>blue!</color>
-
-    If
-    they all fit, the edges will all be <b><color=#FF00FF>pink!</color>'
+  m_text: "4\uAC1C\uC758 \uBD80\uC801\uB4E4\uC744 \uC62C\uBC14\uB974\uC9C0 \uC54A\uC740
+    \uC21C\uC11C\uB85C \uD130\uCE58\uD558\uBA74 \n<b><color=#00AAFF>\uD30C\uB780\uC0C9!</color>\uC73C\uB85C
+    \uB429\uB2C8\uB2E4!<b>\n\n\uC62C\uBC14\uB978 \uC21C\uC11C\uB85C \uD130\uCE58\uD558\uBA74
+    \uAC00\uC7A5\uC790\uB9AC\uAC00  \n<b><color=#FF00FF>\uD551\uD06C\uC0C9!</color>\uC774
+    \uB429\uB2C8\uB2E4! "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7519,13 +7523,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The amulets were summoned around!
-
-    Now you can click the button in
-    the right order!'
+  m_text: "\uC8FC\uC704\uC5D0 \uBD80\uC801\uB4E4\uC774 <b>\n\uC18C\uD658\uB418\uC5C8\uC5B4\uC694!\n\n<b>\uC774\uC81C
+    \uBD80\uC801\uB4E4\uC744 <b>\n\uC62C\uBC14\uB978 \uC21C\uC11C\uB300\uB85C<b>\n
+    \uD130\uCE58\uD560 \uC218 \uC788\uC5B4\uC694!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8080,10 +8084,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Touch!
+  m_text: "\uD130\uCE58"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8439,10 +8444,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Touch!
+  m_text: "\uD130\uCE58!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8682,14 +8688,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'For now, you simply press it in the order of <size=10>1, 3, 2, 4.</size>
-
-
-    But
-    in the real game, it''s a random order!                        Try pressing it!'
+  m_text: "\uC9C0\uAE08\uC740 \uC5F0\uC2B5\uC774\uB2C8\uAE4C <b>\n<size=10>1, 3,
+    2, 4.</size><b>\n \uC758 \uC21C\uC11C\uB300\uB85C \uD130\uCE58\uD558\uBA74 \uB429\uB2C8\uB2E4!\n\n\uD558\uC9C0\uB9CC
+    \uC9C4\uC9DC \uAC8C\uC784\uC5D0\uC11C\uB294 \uBD80\uC801\uC758 \uC21C\uC11C\uB294
+    \uB79C\uB364\uC774\uC5D0\uC694!!\n<b> \n\uC790, \uB20C\uB7EC\uBD10\uC694!!!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8713,8 +8719,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9272,12 +9278,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Amazing!                   This is how you can defeat your enemies by
-    clicking on the buttons of your amulets.\n\nNow we're diving into the Dead Moon!
-    \nIn 5 seconds!"
+  m_text: "\uC88B\uC544\uC694!<b>\n\n\uC774\uC81C \uBD80\uC801\uC744 \uC120\uD0DD\uD574\n<b>\n\uC801\uC744
+    \uBB3C\uB9AC\uCE58\uB294 \uBC95\uC744 \uC54C\uACA0\uB098\uC694?\n\r\n\uC774\uC81C
+    5\uCD08 \uB4A4\uC5D0<b>\nDeadMoon \uC138\uACC4\uB85C \n<b>\uC774\uB3D9\uD569\uB2C8\uB2E4!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2017d32f91cb4374087d518c01b26432, type: 2}
+  m_sharedMaterial: {fileID: 5109192174823792645, guid: 2017d32f91cb4374087d518c01b26432,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9408,10 +9415,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Touch!
+  m_text: "\uD130\uCE58"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9652,10 +9660,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RISE
+  m_text: "\uC18C\uD658"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10901,10 +10910,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click the RISE button! Let's summon the amulets!
+  m_text: "\uBD80\uC801\uC744 \uC0DD\uC131\uD558\uAE30 \uC704\uD574 \n\n<b>\uC18C\uD658\uBC84\uD2BC\uC744
+    \uD130\uCE58\uD558\uC138\uC694! "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8ac4ae9041012e4bb57a645942e5d17, type: 2}
+  m_sharedMaterial: {fileID: 1809863241733209030, guid: d8ac4ae9041012e4bb57a645942e5d17,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
