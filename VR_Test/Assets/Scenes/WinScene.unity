@@ -222,7 +222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.36, y: -1.48}
+  m_AnchoredPosition: {x: -0.36, y: -1.34}
   m_SizeDelta: {x: 853, y: 469.5}
   m_Pivot: {x: 0, y: 0}
 --- !u!1001 &93219832
@@ -2685,7 +2685,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 9b9d420c7e787bf43b7b42e0430a9b2a, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -2697,7 +2697,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Deadmoon End
+  m_Text: "\uB2EC\uC774 \uC84C\uC2B5\uB2C8\uB2E4. \uC544\uCE68\uC774 \uC635\uB2C8\uB2E4."
 --- !u!222 &1981518104
 CanvasRenderer:
   m_ObjectHideFlags: 0
