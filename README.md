@@ -4,7 +4,7 @@
 *Description*
 ========================================================================
 좁은 실내 공간에서도 팔을 휘저으며 자유롭게 움직임으로 멀미를 최소화한 VR 게임입니다.\
-With Arm-Shaking Movement, You can free from VR sickness in this VR Game.\
+With Arm-Shaking Movement, You can free from VR sickness in this VR Game.
 
 ### Game Concept
 - Free Movement
